@@ -34,8 +34,8 @@ app.get('/',async function(req,res){
   }else{
     // times = Number(times) + 1;
     // await client.set(userIp,times,'KEEPTTL');
-    
-    // avoid race-condition
+
+    // Avoid race-condition and will not reset ttl.
     await client.incr(userIp)
   }
   if(times>60){
