@@ -25,7 +25,7 @@ function getCacheById(key) {
 app.get('/',async function(req,res){
   const forwarded = req.headers['x-forwarded-for']
   const userIp = forwarded ? forwarded.split(/, /)[0] : req.connection.remoteAddress
-  console.log(userIp)
+  // console.log(userIp)
 
   let times = await getCacheById(userIp)
   if(!times){
