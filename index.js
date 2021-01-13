@@ -22,7 +22,6 @@ function getCacheById(key) {
   })
 }
 
-
 app.get('/',async function(req,res){
   const forwarded = req.headers['x-forwarded-for']
   const userIp = forwarded ? forwarded.split(/, /)[0] : req.connection.remoteAddress
@@ -31,10 +30,13 @@ app.get('/',async function(req,res){
   let times = await getCacheById(userIp)
   if(!times){
     times = 1
-    await client.set(userIp,times,'EX',60);
+    await client.set(userIp,times,'EX',10);
   }else{
-    times = Number(times) + 1;
-    await client.set(userIp,times,'KEEPTTL');
+    // times = Number(times) + 1;
+    // await client.set(userIp,times,'KEEPTTL');
+    
+    // avoid race-condition
+    await client.incr(userIp)
   }
   if(times>60){
     res.send('Error')
