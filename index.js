@@ -43,4 +43,6 @@ app.get('/',async function(req,res){
   }
 })
 
-app.listen(3000)
+app.listen(3000,function(){
+  console.log('Server is listen on port 3000.')
+})
