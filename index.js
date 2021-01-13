@@ -30,7 +30,7 @@ app.get('/',async function(req,res){
   let times = await getCacheById(userIp)
   if(!times){
     times = 1
-    await client.set(userIp,times,'EX',10);
+    await client.set(userIp,times,'EX',60);
   }else{
     // times = Number(times) + 1;
     // await client.set(userIp,times,'KEEPTTL');
