@@ -42,3 +42,6 @@ npm start
 mocha
 
 ### 示意圖
+![alt](https://github.com/neversaynever0502/dcard-test/blob/master/demo/demo1.png)
+![alt](https://github.com/neversaynever0502/dcard-test/blob/master/demo/demo2.png)
+![alt](https://github.com/neversaynever0502/dcard-test/blob/master/demo/demo3.png)
