@@ -1,12 +1,17 @@
+### 線上網址
+https://dcard-test.neversaynever.work/
+
 ### 架構
 
 使用express來當我們的後端框架，使用redis來當我們的暫存資料庫
 
-在測試中使用mocha套件。
+在測試中使用mocha套件
+
+伺服器架在aws ec2上面，使用nginx和let's enscript去做https和轉址
 
 ### 為何選用redis
 
-redis適合存放cache資料，且速度快
+redis適合存放cache資料，且速度快（key-value-pair結構）
 
 而我們此架構中，使用者連線資料並不需要永久保存
 
@@ -32,4 +37,5 @@ npm start
 
 ##### 4.跑測試
 
+開另外一個終端機
 mocha
